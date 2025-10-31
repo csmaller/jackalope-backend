@@ -65,4 +65,10 @@ public class BlogController {
         List<Blog> blogs = blogService.getBlogsByAuthor(authorId);
         return ResponseEntity.ok(blogs);
     }
+    
+    @GetMapping("/latest")
+    public ResponseEntity<List<Blog>> getLatestBlogs() {
+        List<Blog> blogs = blogService.getLatestBlogs();
+        return ResponseEntity.ok(blogs);
+    }
 }

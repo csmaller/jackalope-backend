@@ -2,6 +2,8 @@ package com.jackalope.backend.model;
 
 import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.UpdateTimestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "blogs")
@@ -22,6 +24,10 @@ public class Blog {
     @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     private User author;
 
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+    
     @Transient
     private Long authorId;
 
@@ -64,6 +70,14 @@ public class Blog {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public Long getAuthorId() {

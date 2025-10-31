@@ -47,4 +47,8 @@ public class BlogService {
         User author = userService.getUser(authorId);
         return blogRepository.findByAuthor(author);
     }
+    
+    public List<Blog> getLatestBlogs() {
+        return blogRepository.findTop2ByOrderByUpdatedAtDesc();
+    }
 }

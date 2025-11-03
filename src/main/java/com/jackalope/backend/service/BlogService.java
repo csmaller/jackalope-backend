@@ -49,6 +49,6 @@ public class BlogService {
     }
     
     public List<Blog> getLatestBlogs() {
-        return blogRepository.findTop2ByOrderByUpdatedAtDesc();
+        return blogRepository.findTop6ByOrderByUpdatedAtDesc();
     }
 }

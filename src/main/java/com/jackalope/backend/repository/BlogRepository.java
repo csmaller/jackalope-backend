@@ -11,6 +11,6 @@ import java.util.List;
 public interface BlogRepository extends JpaRepository<Blog, Long> {
     List<Blog> findByAuthor(User author);
     
-    @Query(value = "SELECT * FROM blogs ORDER BY updated_at DESC LIMIT 2", nativeQuery = true)
-    List<Blog> findTop2ByOrderByUpdatedAtDesc();
+    @Query(value = "SELECT * FROM blogs ORDER BY updated_at DESC LIMIT 6", nativeQuery = true)
+    List<Blog> findTop6ByOrderByUpdatedAtDesc();
 }
